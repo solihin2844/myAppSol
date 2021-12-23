@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <?!= include("index-css"); ?>
+    <script>       
+      Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+      });
+
+    </script>
+  </head>
+  <body>
+   <div class="grid-container fluid mt-1" style="height: 1000px;">
+      <div data-abide-error class="callout alert" data-closable style="display: none;">        
+        <span id="isipesan">Wajib isi semua...!!</span>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="grid-x">
+        <div class="cell medium-6 large-2 px-2">
+          <label>Area
+            <select id="gunit" name="gunit" required>
+              <?!= group; ?>
+            </select>
+          </label>
+        </div>
+
+        <div class="cell medium-6 large-3 px-2">
+          <label>Cabang
+            <select id="ukerja" required>
+              <?!= ukerja; ?>
+            </select>
+          </label>
+        </div>
+
+        <div class="cell medium-4 large-2 px-1">
+          <label>Tanggal Awal
+            <div class="input-group">
+              <span class="input-group-label">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <input class="input-group-field tanggal" type="date" id="tgl_awal" required>              
+            </div>            
+          </label>
+        </div>
+
+        <div class="cell medium-4 large-2 px-1">
+          <label>Tanggal Akhir
+            <div class="input-group">
+              <span class="input-group-label">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <input class="input-group-field tanggal" type="date" id="tgl_akhir" required>              
+            </div>            
+          </label>
+        </div>
+
+        <div class="cell medium-4 large-2 px-2 grid-y align-self-bottom">
+          <button class="button" id="btnCari">
+              <i class="fa fa-search me-2 icon"></i>View
+            </button>
+        </div>
+
+        
+
+      </div>
+      <?!= include("tabel"); ?>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+  <script> 
+    $(document).foundation();
+    </script>
+
+  </body>
+</html>
