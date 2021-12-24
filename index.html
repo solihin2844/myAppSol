@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <?!= include("index-css"); ?>
+    <style>
+      .mt-1 {margin-top: 0.25em;}
+      .px-2 {padding-left: 0.50em; padding-right: 0.50em;}
+    </style>
     <script>       
       Date.prototype.toDateInputValue = (function() {
         var local = new Date(this);
@@ -30,7 +33,9 @@
         <div class="cell medium-6 large-2 px-2">
           <label>Area
             <select id="gunit" name="gunit" required>
-              <?!= group; ?>
+              <option selected value="">Selected Area Kerja</option>
+              <option value="satu">Area Satu</option>
+              <option value="dua">Area Dua</option>
             </select>
           </label>
         </div>
@@ -38,7 +43,9 @@
         <div class="cell medium-6 large-3 px-2">
           <label>Cabang
             <select id="ukerja" required>
-              <?!= ukerja; ?>
+              <option selected value="">Selected Cabang Kerja</option>
+              <option value="satu">Cabang Satu</option>
+              <option value="dua">Cabang Dua</option>
             </select>
           </label>
         </div>
